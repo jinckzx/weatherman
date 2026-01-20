@@ -3,3 +3,5 @@ uvicorn
 fastapi
 pandas
 pydantic
+prophet
+matplotlib
