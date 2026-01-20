@@ -1,0 +1,49 @@
+Handles Complex Seasonality: Prophet automatically detects daily, weekly, and yearly seasonal patterns.
+Incorporates Holidays: Easy to add holidays or special events that affect the forecast.
+Robust to Missing Data: Prophet handles missing values without requiring special treatment.
+Automatic Model Tuning: Prophet automatically selects the best parameters for trend and seasonality.
+Non-Linear Trends: Prophet can model non-linear trends (e.g., exponential growth) easily.
+User-Friendly: Prophet is easier to use and tune compared to ARIMA, which requires more manual adjustments.
+
+HATING ON ARIMA BECAUSE MORE STATISTICAL AND DOESNT CAPTURE SEASONALITY TYPES.
+The standard ARIMA model is designed for non-seasonal time series, so if your data has clear seasonal patterns, you'll need to use Seasonal ARIMA (SARIMA) or similar extensions.
+LSTMs require more computational power and memory than models like Prophet, especially for large datasets.
+Long Training Times:
+Training deep learning models can take significantly longer compared to simpler models.
+Prone to Overfitting:
+LSTMs can overfit if the dataset is small or if hyperparameters are not tuned correctly.
+
+apmhan and remal -> cyclones in westbengal which contributed to that outlier.
+just removed it z scores >3;; removed.
+Z Score = (x − x̅ )/σ
+Where, x = Standardized random variable. x̅ = Mean. σ = Standard deviation.
+
+changepoint_prior_scale 0.2 is considered high.0.05 is decreased.
+Controls the flexibility of the model in adapting to trend changes (changepoints).
+A higher value allows the model to adapt more quickly to changes in the trend.
+A lower value smoothens the trend and avoids overfitting to noise.
+seasonality_prior_scale
+Controls the flexibility of the seasonal components.
+A higher value allows more variability in the seasonal patterns.
+A lower value restricts seasonal effects, making them smoother.
+//Use a higher value (e.g., 20.0) if:
+Your data exhibits strong seasonal fluctuations.
+You suspect the default seasonality constraints are too restrictive.
+//Use a lower value (e.g., 5.0) if:
+Seasonal patterns are expected to be smooth and not too variable.
+You want to prevent overfitting to irregularities in the data.
+*** changepoint_range
+Defines the proportion of the data where changepoints are considered (default: 0.8).
+A higher value (e.g., 0.95) allows changepoints closer to the end of the dataset.
+A lower value focuses changepoints earlier in the data.
+When to Increase
+Use a higher value if:
+You suspect trend changes occur toward the end of your dataset.
+Your dataset includes recent, significant events (e.g., a pandemic, market crash).
+When to Decrease
+Use a lower value if:
+You believe trend changes are more likely in earlier parts of the data.
+You want to ignore recent anomalies or noise.
+
+
+
